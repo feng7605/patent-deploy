@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: patent-gateway-service
+#  namespace: patent-system
+spec:
+  selector:
+    app: patent-gateway    # 要和deployment中的labels匹配
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30080
+  type: NodePort

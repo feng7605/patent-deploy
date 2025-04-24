@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: patent-gateway
+spec:
+  replicas: 1
+  selector:           # 添加selector
+    matchLabels:
+      app: patent-gateway
+  template:
+    metadata:
+      labels:        # 添加labels
+        app: patent-gateway
+    spec:
+      imagePullSecrets:
+      - name: aliyun-registry-secret
+      containers:
+      - name: patent-gateway
+        image: crpi-2em0p6yu011c97dv.cn-beijing.personal.cr.aliyuncs.com/patent-res/patent-gateway:prod
+        ports:
+        - containerPort: 8080
