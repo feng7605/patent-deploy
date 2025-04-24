@@ -17,6 +17,6 @@ spec:
       - name: aliyun-registry-secret
       containers:
       - name: patent-gateway
-        image: crpi-2em0p6yu011c97dv.cn-beijing.personal.cr.aliyuncs.com/patent-res/patent-gateway:test
+        image: crpi-2em0p6yu011c97dv.cn-beijing.personal.cr.aliyuncs.com/patent-res/patent-gateway:7625e8f-dirty
         ports:
         - containerPort: 8080
