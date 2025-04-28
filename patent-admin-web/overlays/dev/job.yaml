@@ -1,0 +1,36 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: patent-admin-web
+spec:
+  template:
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: dev-master1
+      imagePullSecrets:
+        - name: aliyun-registry-secret
+      containers:
+        - name: patent-gateway
+          image: purple111111/service:a4f5889-250428
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: hostpath-volume
+              mountPath: /app_data/www/html/
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              mkdir -p /app_data/www/html/patent-admin-web
+              cd /app_data/www/html/patent-admin-web
+              if [ -d "dist" ]; then
+                mv dist /tmp
+              fi
+              if [ ! -d "/app/www/dist" ]; then
+                echo "Error: /app/www/dist directory does not exist."
+                exit 1
+              fi
+              mv /app/www/dist .
+      restartPolicy: Never
+      volumes:
+        - name: hostpath-volume
+          hostPath:
+            path: /app_data/www/html/
