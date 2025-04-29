@@ -11,7 +11,7 @@ spec:
         - name: aliyun-registry-secret
       containers:
         - name: patent-gateway
-          image: purple111111/service:a4f5889-250428
+          image: purple1111111/service:c25fe35-250429
           imagePullPolicy: Always
           volumeMounts:
             - name: hostpath-volume
