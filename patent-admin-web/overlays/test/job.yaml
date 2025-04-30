@@ -12,7 +12,7 @@ spec:
         - name: aliyun-registry-secret
       containers:
         - name: patent-gateway
-          image: crpi-2em0p6yu011c97dv.cn-beijing.personal.cr.aliyuncs.com/patent-res/patent-admin-web:test
+          image: crpi-2em0p6yu011c97dv.cn-beijing.personal.cr.aliyuncs.com/patent-res/patent-admin-web:c25fe35-250430
           imagePullPolicy: Always
           volumeMounts:
             - name: hostpath-volume
