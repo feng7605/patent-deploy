@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: photon-app-admin-deployment
+spec:
+  replicas: 1 # 部署两个副本
+  selector:
+    matchLabels:
+      app: photon-app-admin
+  template:
+    metadata:
+      labels:
+        app: photon-app-admin
+    spec:
+      containers:
+      - name: photon-app-admin
+        image: nginx:alpine # 暂时使用一个公共镜像
+        ports:
+        - containerPort: 8081
