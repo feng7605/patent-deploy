@@ -1,34 +1,11 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: photon-app-server
-  namespace: photon-system
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: photon-app-server
-  template:
-    metadata:
-      labels:
-        app: photon-app-server
-    spec:
-      imagePullSecrets:
-        - name: aliyun-registry-secret
-      containers:
-        - name: photon-app-server
-          image: crpi-2em0p6yu011c97dv.cn-beijing.personal.cr.aliyuncs.com/patent-res/photon-app-server
-          ports:
-            - containerPort: 8081
-          env:
-            - name: ENV
-              value: "dev"
-          volumeMounts:
-            - name: tz-config
-              mountPath: /etc/localtime
-              readOnly: true
-      volumes:
-        - name: tz-config
-          hostPath:
-            path: /etc/localtime
-            type: File # 确保指定类型为 File
+name: photon-app-server
+image: crpi-2em0p6yu011c97dv.cn-beijing.personal.cr.aliyuncs.com/patent-res/photon-app-server
+ports:
+  - containerPort: 8081
+env:
+  - name: ENV
+    value: "dev"
+volumeMounts:
+  - name: tz-config
+    mountPath: /etc/localtime
+    readOnly: true
