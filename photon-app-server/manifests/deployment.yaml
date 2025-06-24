@@ -26,7 +26,6 @@ spec:
           volumeMounts:
             - name: data-storage
               mountPath: /app/data
-          volumeMounts:
             - name: tz-config
               mountPath: /etc/localtime
               readOnly: true
