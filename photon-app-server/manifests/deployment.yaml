@@ -24,10 +24,16 @@ spec:
             - name: ENV
               value: "prod"
           volumeMounts:
+            - name: data-storage
+              mountPath: /app/data
+          volumeMounts:
             - name: tz-config
               mountPath: /etc/localtime
               readOnly: true
       volumes:
+        - name: sqlite-storage
+          persistentVolumeClaim:
+            claimName: data-pvc
         - name: tz-config
           hostPath:
             path: /etc/localtime
