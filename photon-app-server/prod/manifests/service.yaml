@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: patent-app-service
+  namespace: photon-system
+spec:
+  type: NodePort # 使用 NodePort 方便我们从外部访问
+  selector:
+    app: photon-app-server
+  ports:
+  - protocol: TCP
+    port: 8081       # Service 自己的端口
+    targetPort: 8081 # 容器暴露的端口
