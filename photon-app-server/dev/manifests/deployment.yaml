@@ -31,9 +31,10 @@ spec:
               readOnly: true
       volumes:
         - name: data-storage
-          persistentVolumeClaim:
-            claimName: data-pvc
+          hostPath:
+            path: /data/projects/app/server/storage
+            type: Directory
         - name: tz-config
           hostPath:
             path: /etc/localtime
-            type: File # 确保指定类型为 File
+            type: File
