@@ -17,7 +17,7 @@ spec:
         - name: aliyun-registry-secret
       containers:
         - name: photon-app-server
-          image: crpi-2em0p6yu011c97dv.cn-beijing.personal.cr.aliyuncs.com/patent-res/photon-app-server:1c0f396abd246e05d7b7b055ee5bfe87aa686eb2
+          image: crpi-2em0p6yu011c97dv.cn-beijing.personal.cr.aliyuncs.com/patent-res/photon-app-server:1a76960c6993854253c8024173ad0dd08364d13f
           ports:
             - containerPort: 8081
           env:
